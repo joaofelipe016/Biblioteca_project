@@ -35,9 +35,7 @@ public class PessoaFisicaService {
         pessoaFisica.getPessoa().getEndereco().setNrCep(pessoaFisicaUpdate.getPessoa().getEndereco().getNrCep());
         pessoaFisica.getPessoa().getEndereco().setNmLogradouro(pessoaFisicaUpdate.getPessoa().getEndereco().getNmLogradouro());
         pessoaFisica.getPessoa().getEndereco().setNrLogradouro(pessoaFisicaUpdate.getPessoa().getEndereco().getNrLogradouro());
-        Bairro bairro = bairroRepository.findById(pessoaFisicaUpdate.getPessoa().getEndereco().getBairro().getIdBairro())
-                .orElseThrow(() -> new RuntimeException("Bairro não encontrado com id " + pessoaFisicaUpdate.getPessoa().getEndereco().getBairro().getIdBairro()));
-        pessoaFisica.getPessoa().getEndereco().setBairro(bairro);
-        return pessoaFisicaUpdate;
+        pessoaFisica.getPessoa().getEndereco().getBairro().setIdBairro(pessoaFisicaUpdate.getPessoa().getEndereco().getBairro().getIdBairro());
+        return pessoaFisica;
     }
 }
