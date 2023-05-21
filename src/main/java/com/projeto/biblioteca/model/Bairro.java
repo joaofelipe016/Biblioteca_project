@@ -20,5 +20,5 @@ public class Bairro {
     private Long idBairro;
 
     @Column(name = "nm_bairro")
-    private String nm_bairro;
+    private String nmBairro;
 }
