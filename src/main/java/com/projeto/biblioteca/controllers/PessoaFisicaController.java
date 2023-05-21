@@ -24,4 +24,9 @@ public class PessoaFisicaController {
         this.pessoaFisicaService.atualizar(pessoaFisica, id);
         return ResponseEntity.ok(pessoaFisica).getBody();
     }
+
+    @GetMapping(path = "/{id}")
+    public PessoaFisica getById(@PathVariable("id") Long id) {
+        return this.pessoaFisicaService.getById(id);
+    }
 }

@@ -41,4 +41,7 @@ public class PessoaFisicaService {
         return pessoaFisica;
     }
 
+    public PessoaFisica getById(Long id) {
+        return this.pessoaFisicaRepository.getReferenceById(id);
+    }
 }
