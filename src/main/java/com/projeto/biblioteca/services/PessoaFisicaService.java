@@ -5,7 +5,11 @@ import com.projeto.biblioteca.model.PessoaFisica;
 import com.projeto.biblioteca.repositories.BairroRepository;
 import com.projeto.biblioteca.repositories.PessoaFisicaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PessoaFisicaService {
@@ -43,5 +47,13 @@ public class PessoaFisicaService {
 
     public PessoaFisica getById(Long id) {
         return this.pessoaFisicaRepository.getReferenceById(id);
+    }
+
+    public List<PessoaFisica> find(Optional<Specification<PessoaFisica>> specification){
+        if(specification.isPresent()) {
+            return this.pessoaFisicaRepository.findAll(specification.get());
+        } else {
+            return this.pessoaFisicaRepository.findAll();
+        }
     }
 }

@@ -29,4 +29,6 @@ public class PessoaFisicaController {
     public PessoaFisica getById(@PathVariable("id") Long id) {
         return this.pessoaFisicaService.getById(id);
     }
+
+
 }

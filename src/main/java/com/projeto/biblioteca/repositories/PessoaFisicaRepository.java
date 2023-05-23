@@ -2,6 +2,13 @@ package com.projeto.biblioteca.repositories;
 
 import com.projeto.biblioteca.model.Pessoa;
 import com.projeto.biblioteca.model.PessoaFisica;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PessoaFisicaRepository extends JpaRepository<PessoaFisica, Long> { }
+import java.util.List;
+
+public interface PessoaFisicaRepository extends JpaRepository<PessoaFisica, Long> {
+    public List<PessoaFisica> findAll();
+
+    public List<PessoaFisica> findAll(Specification<PessoaFisica> specification);
+}
