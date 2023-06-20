@@ -4,6 +4,7 @@ import com.projeto.biblioteca.model.Bairro;
 import com.projeto.biblioteca.model.PessoaFisica;
 import com.projeto.biblioteca.repositories.BairroRepository;
 import com.projeto.biblioteca.repositories.PessoaFisicaRepository;
+import com.projeto.biblioteca.repositories.pessoafisicacriteria.criteria.params.PessoaFisicaFilterParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -49,11 +50,7 @@ public class PessoaFisicaService {
         return this.pessoaFisicaRepository.getReferenceById(id);
     }
 
-    public List<PessoaFisica> find(Optional<Specification<PessoaFisica>> specification){
-        if(specification.isPresent()) {
-            return this.pessoaFisicaRepository.findAll(specification.get());
-        } else {
-            return this.pessoaFisicaRepository.findAll();
-        }
+    public List<PessoaFisica> getAll(PessoaFisicaFilterParam param) {
+        return this.pessoaFisicaRepository.getFilter(param);
     }
 }

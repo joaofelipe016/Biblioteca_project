@@ -1,10 +1,14 @@
 package com.projeto.biblioteca.controllers;
 
 import com.projeto.biblioteca.model.PessoaFisica;
+import com.projeto.biblioteca.repositories.pessoafisicacriteria.criteria.params.PessoaFisicaFilterParam;
 import com.projeto.biblioteca.services.PessoaFisicaService;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/pessoasFisicas")
@@ -30,5 +34,8 @@ public class PessoaFisicaController {
         return this.pessoaFisicaService.getById(id);
     }
 
-
+    @GetMapping
+    public ResponseEntity<List<PessoaFisica>> getMovies(@ParameterObject PessoaFisicaFilterParam params) {
+        return ResponseEntity.ok().body(this.pessoaFisicaService.getAll(params));
+    }
 }
