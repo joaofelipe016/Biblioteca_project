@@ -24,4 +24,9 @@ public class PessoaJuridicaController {
         this.pessoaJuridicaService.atualizar(pessoaJuridica, id);
         return ResponseEntity.ok(pessoaJuridica).getBody();
     }
+
+    @GetMapping(path = "/{id}")
+    public PessoaJuridica getById(@PathVariable("id") Long id, @RequestBody PessoaJuridica pessoaJuridica) {
+        return this.pessoaJuridicaService.getById(id);
+    }
 }
