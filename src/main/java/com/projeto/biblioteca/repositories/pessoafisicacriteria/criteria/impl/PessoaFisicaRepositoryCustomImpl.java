@@ -31,10 +31,10 @@ public class PessoaFisicaRepositoryCustomImpl implements PessoaFisicaRepositoryC
         List<Predicate> predicates = new ArrayList<>();
 
         if ( param.getNmPessoa() != null) {
-            predicates.add(criteriaBuilder.like(pessoaFisica.get("nm_pessoa"), "%" + param.getNmPessoa() + "%"));
+            predicates.add(criteriaBuilder.like(pessoaFisica.get("pessoa").get("nmPessoa"), "%" + param.getNmPessoa() + "%"));
         }
         if ( param.getNrCpf() != null) {
-            predicates.add(criteriaBuilder.like(pessoaFisica.get("nr_cpf"), "%" + param.getNrCpf() + "%"));
+            predicates.add(criteriaBuilder.like(pessoaFisica.get("nrCpf"), "%" + param.getNrCpf() + "%"));
         }
         if (!predicates.isEmpty()) {
             query.where( predicates.stream().toArray( Predicate[]::new ) );
