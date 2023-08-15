@@ -32,4 +32,7 @@ public class PessoaJuridicaService {
         pessoaJuridica.getPessoa().getEndereco().getBairro().setIdBairro(pessoaJuridicaAtualizada.getPessoa().getEndereco().getBairro().getIdBairro());
     }
 
+    public PessoaJuridica getById(Long id) {
+        return this.pessoaJuridicaRepository.getById(id);
+    }
 }

@@ -1,5 +1,6 @@
 package com.projeto.biblioteca.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,21 +16,21 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "pessoa_fisica")
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class PessoaFisica {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pessoa_fisica")
-    Long idPessoaFisica;
+    private Long idPessoaFisica;
 
-    @DateTimeFormat(pattern = "YYYY-MM-DD")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(nullable = false, name = "dt_nascimento")
     private LocalDate dtNascimento;
 
     @Column(nullable = false, name = "nr_cpf")
-    String nrCpf;
+    private String nrCpf;
 
-    @OneToOne (cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private Pessoa pessoa;
-
 }
