@@ -35,7 +35,7 @@ public class PessoaFisicaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<PessoaFisica>> getMovies(@ParameterObject PessoaFisicaFilterParam params) {
-        return ResponseEntity.ok().body(this.pessoaFisicaService.getAll(params));
+    public ResponseEntity<List<PessoaFisica>> find(@ParameterObject PessoaFisicaFilterParam params) {
+        return ResponseEntity.ok().body(this.pessoaFisicaService.find(params));
     }
 }

@@ -50,7 +50,7 @@ public class PessoaFisicaService {
         return this.pessoaFisicaRepository.getReferenceById(id);
     }
 
-    public List<PessoaFisica> getAll(PessoaFisicaFilterParam param) {
+    public List<PessoaFisica> find(PessoaFisicaFilterParam param) {
         return this.pessoaFisicaRepository.getFilter(param);
     }
 }
